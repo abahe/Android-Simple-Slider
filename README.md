@@ -1,1 +1,1 @@
-# Simple-Slider-Android-
+# Android-Simple-Slider
