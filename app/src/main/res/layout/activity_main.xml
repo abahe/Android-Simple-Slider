@@ -151,7 +151,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/txt_info_privacy"
+                android:id="@+id/txt_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -66,21 +66,25 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 if(position == adapter.list.size-1){
                     //lastPage
-                    binding.txtContinueStart.text = "Done"
-                    binding.txtContinueStart.setOnClickListener {
-//                        goToDashboard()
-                    }
+                    binding.txtContinueStart.visibility = View.GONE
+//                    binding.txtContinueStart.text = "Done"
+//                    binding.txtContinueStart.setOnClickListener {
+////                        goToDashboard()
+//                    }
 //                    txt_continue_start.setOnClickListener {
 //                    txt_continue_start.setOnClickListener {
 ////                        goToLogin()
 //                    }
 
+                    binding.txtDesc.setText(position.toString())
                     Log.e("xlogx","in B")
 //                    binding.btnNext.setText("ajo")
 //                    binding.btnNext.visibility = View.GONE
                 }else{
                     Log.e("xlogx","in A")
                     //has next
+                    binding.txtContinueStart.visibility = View.VISIBLE
+                    binding.txtDesc.setText(position.toString())
 //                    btn_next.text = "Next"
 //                    btn_next.setOnClickListener {
 //                        view_pager.currentItem++
@@ -88,37 +92,33 @@ class MainActivity : AppCompatActivity() {
                     //binding.btnNext.visibility = View.GONE
                 }
 
-                when(binding.viewPager.currentItem){
-                    0->{
-                        binding.indicator1.setTextColor(Color.BLACK)
-                        binding.indicator2.setTextColor(Color.GRAY)
-                        binding.indicator3.setTextColor(Color.GRAY)
+                if(binding.viewPager.currentItem == 0){
+                    binding.indicator1.setTextColor(Color.BLACK)
+                    binding.indicator2.setTextColor(Color.GRAY)
+                    binding.indicator3.setTextColor(Color.GRAY)
 
-                        binding.img1.setImageResource(R.drawable.ic_selected_slider)
-                        binding.img2.setImageResource(R.drawable.circle_unselected_selector)
-                        binding.img3.setImageResource(R.drawable.circle_unselected_selector)
-                        binding.txtBack.visibility = View.GONE
-                    }
-                    1->{
-                        binding.indicator1.setTextColor(Color.GRAY)
-                        binding.indicator2.setTextColor(Color.BLACK)
-                        binding.indicator3.setTextColor(Color.GRAY)
+                    binding.img1.setImageResource(R.drawable.ic_selected_slider)
+                    binding.img2.setImageResource(R.drawable.circle_unselected_selector)
+                    binding.img3.setImageResource(R.drawable.circle_unselected_selector)
+                    binding.txtBack.visibility = View.GONE
+                }else if(binding.viewPager.currentItem == adapter.list.size-1){
+                    binding.indicator1.setTextColor(Color.GRAY)
+                    binding.indicator2.setTextColor(Color.GRAY)
+                    binding.indicator3.setTextColor(Color.BLACK)
 
-                        binding.img1.setImageResource(R.drawable.circle_unselected_selector)
-                        binding.img2.setImageResource(R.drawable.ic_selected_slider)
-                        binding.img3.setImageResource(R.drawable.circle_unselected_selector)
-                        binding.txtBack.visibility = View.VISIBLE
-                    }
-                    2->{
-                        binding.indicator1.setTextColor(Color.GRAY)
-                        binding.indicator2.setTextColor(Color.GRAY)
-                        binding.indicator3.setTextColor(Color.BLACK)
+                    binding.img1.setImageResource(R.drawable.circle_unselected_selector)
+                    binding.img2.setImageResource(R.drawable.circle_unselected_selector)
+                    binding.img3.setImageResource(R.drawable.ic_selected_slider)
+                    binding.txtBack.visibility = View.VISIBLE
+                }else{
+                    binding.indicator1.setTextColor(Color.GRAY)
+                    binding.indicator2.setTextColor(Color.BLACK)
+                    binding.indicator3.setTextColor(Color.GRAY)
 
-                        binding.img1.setImageResource(R.drawable.circle_unselected_selector)
-                        binding.img2.setImageResource(R.drawable.circle_unselected_selector)
-                        binding.img3.setImageResource(R.drawable.ic_selected_slider)
-                        binding.txtBack.visibility = View.VISIBLE
-                    }
+                    binding.img1.setImageResource(R.drawable.circle_unselected_selector)
+                    binding.img2.setImageResource(R.drawable.ic_selected_slider)
+                    binding.img3.setImageResource(R.drawable.circle_unselected_selector)
+                    binding.txtBack.visibility = View.VISIBLE
                 }
             }
         })
